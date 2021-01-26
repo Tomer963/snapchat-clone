@@ -59,7 +59,7 @@ const Preview = () => {
               username: 'Tomer Dore',
               read: false,
               // profilePic
-              timesStamp: firebase.firestore.FieldValue.serverTimestamp(),
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
             history.replace('/chats');
           });
