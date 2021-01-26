@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { resetCameraImage, selectCameraImage } from './features/cameraSlice';
 import { selectUser } from './features/appSlice';
 
-
 import CloseIcon from '@material-ui/icons/Close';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import CreateIcon from '@material-ui/icons/Create';
@@ -25,7 +24,7 @@ const Preview = () => {
   const cameraImage = useSelector(selectCameraImage);
   const history = useHistory();
   const dispatch = useDispatch();
-  const user= useSelector(selectUser)
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     if (!cameraImage) {
@@ -59,7 +58,7 @@ const Preview = () => {
           .then((url) => {
             db.collection('posts').add({
               imageUrl: url,
-              username: 'Tomer Dore',
+              username: user.username,
               read: false,
               profilePic: user.profilePic,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
